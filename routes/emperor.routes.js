@@ -62,3 +62,11 @@ router.route("/:id").post((req, res) => {
       .catch((err) => res.status(400).json("Error: " + err));
   });
 });
+
+//delete an Emperor
+
+router.route("/:id").delete((req, res) => {
+  Emperor.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Emperor Deleted"))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
