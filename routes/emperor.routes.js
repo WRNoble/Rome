@@ -43,3 +43,22 @@ router.route("/:id").get((req, res) => {
     .then((emperor) => res.json(emperor))
     .catch((err) => res.status(400).json("Error: " + err));
 });
+
+//update emperor entry
+
+router.route("/:id").post((req, res) => {
+  Emperor.findByIdAndUpdate(req.params.id).then((emperor) => {
+    emperor.name = req.body.name;
+    emperor.yearBorn = Number(req.body.yearBorn);
+    emperor.riseToPower = req.body.riseToPower;
+    emperor.riseToPowerYear = Number(req.body.riseToPowerYear);
+    emperor.death = Number(req.body.death);
+    emperor.bio = req.body.bio;
+    emperor.accomplishments = req.body.accomplishments;
+
+    emperor
+      .save()
+      .then(() => res.json("Emperor has been updated"))
+      .catch((err) => res.status(400).json("Error: " + err));
+  });
+});
