@@ -44,7 +44,7 @@ router.route("/:id").post((req, res) => {
   City.findByIdAndUpdate(req.params.id).then((city) => {
     city.name = req.body.name;
     city.yearFounded = Number(req.body.yearFounded);
-    city.population = req.body.population;
+    city.population = Number(req.body.population);
     city.province = req.body.province;
 
     city
