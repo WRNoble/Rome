@@ -2,13 +2,18 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const emperorsRouter = require("./routes/emperor.routes");
+
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5003;
 
+//middleware
+
 app.use(cors());
 app.use(express.json());
+app.use("/emperors", emperorsRouter);
 
 //connect to database
 

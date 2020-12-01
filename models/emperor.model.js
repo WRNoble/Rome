@@ -19,4 +19,4 @@ const emperorSchema = new Schema(
 
 const Emperor = mongoose.model("Emperor", emperorSchema);
 
-module.export = Emperor;
+module.exports = Emperor;

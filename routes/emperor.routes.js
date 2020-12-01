@@ -70,3 +70,5 @@ router.route("/:id").delete((req, res) => {
     .then(() => res.json("Emperor Deleted"))
     .catch((err) => res.status(400).json("Error: " + err));
 });
+
+module.exports = router;
