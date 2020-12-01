@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const emperorsRouter = require("./routes/emperor.routes");
+const politicianRouter = require("./routes/politician.routes");
 
 require("dotenv").config();
 
