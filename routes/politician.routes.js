@@ -13,19 +13,13 @@ router.route("/").get((req, res) => {
 
 router.route("/add").post((req, res) => {
   const name = req.body.name;
-  const yearBorn = Number(req.body.yearBorn);
-  const riseToPower = req.body.riseToPower;
-  const riseToPowerYear = Number(req.body.riseToPowerYear);
-  const death = Number(req.body.death);
+  const office = req.body.office;
   const bio = req.body.bio;
   const accomplishments = req.body.accomplishments;
 
   const newPolitician = new Politician({
     name,
-    yearBorn,
-    riseToPower,
-    riseToPowerYear,
-    death,
+    office,
     bio,
     accomplishments,
   });
@@ -49,10 +43,7 @@ router.route("/:id").get((req, res) => {
 router.route("/:id").post((req, res) => {
   Politician.findByIdAndUpdate(req.params.id).then((politician) => {
     politician.name = req.body.name;
-    politician.yearBorn = Number(req.body.yearBorn);
-    politician.riseToPower = req.body.riseToPower;
-    politician.riseToPowerYear = Number(req.body.riseToPowerYear);
-    politician.death = Number(req.body.death);
+    politician.office = req.body.riseToPower;
     politician.bio = req.body.bio;
     politician.accomplishments = req.body.accomplishments;
 

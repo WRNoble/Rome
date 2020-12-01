@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const emperorsRouter = require("./routes/emperor.routes");
 const politicianRouter = require("./routes/politician.routes");
+const enemyRouter = require("./routes/enemy.routes");
 
 require("dotenv").config();
 
@@ -15,6 +16,8 @@ const port = process.env.PORT || 5003;
 app.use(cors());
 app.use(express.json());
 app.use("/emperors", emperorsRouter);
+app.use("/politician", politicianRouter);
+app.use("/enemy", enemyRouter);
 
 //connect to database
 

@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const politicianSchema = new Schema(
+const enemySchema = new Schema(
   {
     name: { type: String, required: true },
-    office: { type: String, required: false },
+    nation: { type: String, required: false },
+    death: { type: Number, required: false },
     bio: { type: String, required: true },
     accomplishments: { type: String, required: false },
   },
@@ -14,6 +15,6 @@ const politicianSchema = new Schema(
   }
 );
 
-const Politician = mongoose.model("Politician", politicianSchema);
+const Enemy = mongoose.model("Enemy", enemySchema);
 
-module.exports = Politician;
+module.exports = Enemy;
