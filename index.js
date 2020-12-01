@@ -6,6 +6,7 @@ const emperorsRouter = require("./routes/emperor.routes");
 const politicianRouter = require("./routes/politician.routes");
 const enemyRouter = require("./routes/enemy.routes");
 const cityRouter = require("./routes/city.routes");
+const legionRouter = require("./routes/legion.routes");
 
 require("dotenv").config();
 
@@ -20,6 +21,7 @@ app.use("/emperors", emperorsRouter);
 app.use("/politician", politicianRouter);
 app.use("/enemy", enemyRouter);
 app.use("/city", cityRouter);
+app.use("/legion", legionRouter);
 
 //connect to database
 
