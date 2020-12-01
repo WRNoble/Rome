@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const emperorsRouter = require("./routes/emperor.routes");
 const politicianRouter = require("./routes/politician.routes");
 const enemyRouter = require("./routes/enemy.routes");
+const cityRouter = require("./routes/city.routes");
 
 require("dotenv").config();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use("/emperors", emperorsRouter);
 app.use("/politician", politicianRouter);
 app.use("/enemy", enemyRouter);
+app.use("/city", cityRouter);
 
 //connect to database
 
