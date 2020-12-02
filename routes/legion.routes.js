@@ -3,7 +3,7 @@ let Legion = require("../models/legion.model");
 
 //get all legion
 
-router.route("/").get((req, res) => {
+router.route("/lgion").get((req, res) => {
   Legion.find()
     .then((legion) => res.json(legion))
     .catch((err) => res.status(400).json("Error: " + err));

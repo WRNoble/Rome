@@ -3,7 +3,7 @@ let City = require("../models/city.model");
 
 //get all cities
 
-router.route("/").get((req, res) => {
+router.route("/city").get((req, res) => {
   City.find()
     .then((city) => res.json(city))
     .catch((err) => res.status(400).json("Error: " + err));

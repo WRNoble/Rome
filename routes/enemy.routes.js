@@ -3,7 +3,7 @@ let Enemy = require("../models/enemy.model");
 
 //get all emperors
 
-router.route("/").get((req, res) => {
+router.route("/enemy").get((req, res) => {
   Enemy.find()
     .then((enemy) => res.json(enemy))
     .catch((err) => res.status(400).json("Error: " + err));
