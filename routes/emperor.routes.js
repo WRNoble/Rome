@@ -46,7 +46,7 @@ router.route("/:id").get((req, res) => {
 
 //update emperor entry
 
-router.route("/:id").post((req, res) => {
+router.route("/updateemperor:id").post((req, res) => {
   Emperor.findByIdAndUpdate(req.params.id).then((emperor) => {
     emperor.name = req.body.name;
     emperor.yearBorn = Number(req.body.yearBorn);
