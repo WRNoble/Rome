@@ -3,7 +3,7 @@ let Politician = require("../models/politician.model");
 
 //get all politician
 
-router.route("/politician").get((req, res) => {
+router.route("/").get((req, res) => {
   Politician.find()
     .then((politician) => res.json(politician))
     .catch((err) => res.status(400).json("Error: " + err));

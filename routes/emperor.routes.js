@@ -3,7 +3,7 @@ let Emperor = require("../models/emperor.model");
 
 //get all emperors
 
-router.route("/emperors").get((req, res) => {
+router.route("/").get((req, res) => {
   Emperor.find()
     .then((emperor) => res.json(emperor))
     .catch((err) => res.status(400).json("Error: " + err));
@@ -11,7 +11,7 @@ router.route("/emperors").get((req, res) => {
 
 //add a new emperor
 
-router.route("/addemperor").post((req, res) => {
+router.route("/add").post((req, res) => {
   const name = req.body.name;
   const yearBorn = Number(req.body.yearBorn);
   const riseToPower = req.body.riseToPower;
@@ -46,7 +46,7 @@ router.route("/:id").get((req, res) => {
 
 //update emperor entry
 
-router.route("/updateemperor:id").post((req, res) => {
+router.route("/update/:id").post((req, res) => {
   Emperor.findByIdAndUpdate(req.params.id).then((emperor) => {
     emperor.name = req.body.name;
     emperor.yearBorn = Number(req.body.yearBorn);
