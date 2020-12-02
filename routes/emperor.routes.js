@@ -3,7 +3,7 @@ let Emperor = require("../models/emperor.model");
 
 //get all emperors
 
-router.route("/").get((req, res) => {
+router.route("/emperors").get((req, res) => {
   Emperor.find()
     .then((emperor) => res.json(emperor))
     .catch((err) => res.status(400).json("Error: " + err));
