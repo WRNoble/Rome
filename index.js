@@ -18,10 +18,10 @@ const port = process.env.PORT || 5003;
 app.use(cors());
 app.use(express.json());
 app.use("/emperors", emperorsRouter);
-app.use("/politician", politicianRouter);
-app.use("/enemy", enemyRouter);
-app.use("/city", cityRouter);
-app.use("/legion", legionRouter);
+app.use("/politicians", politicianRouter);
+app.use("/enemies", enemyRouter);
+app.use("/cities", cityRouter);
+app.use("/legions", legionRouter);
 
 //connect to database
 
