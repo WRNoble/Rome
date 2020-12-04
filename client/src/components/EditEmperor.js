@@ -25,6 +25,87 @@ export default class EditEmperor extends Component {
     };
   }
 
+  componentDidMount() {
+    axios
+      .get("http://localhost:5003/emperors/" + this.props.match.params.id)
+      .then((res) => {
+        this.setState({
+          name: res.data.name,
+          yearBorn: res.data.yearBorn,
+          riseToPower: res.data.riseToPower,
+          riseToPowerYear: res.data.riseToPowerYear,
+          death: res.data.death,
+          bio: res.data.bio,
+          accomplishments: res.data.accomplishments,
+        });
+      })
+      .catch((err) => {
+        console.log("Error: " + err);
+      });
+  }
+
+  onChangeName(e) {
+    this.setState({
+      name: e.target.value,
+    });
+  }
+
+  onChangeYearBorn(e) {
+    this.setState({
+      yearBorn: e.target.value,
+    });
+  }
+  onChangeRiseToPower(e) {
+    this.setState({
+      riseToPower: e.target.value,
+    });
+  }
+  onChangeRiseToPowerYear(e) {
+    this.setState({
+      riseToPowerYear: e.target.value,
+    });
+  }
+  onChangeDeath(e) {
+    this.setState({
+      death: e.target.value,
+    });
+  }
+
+  onChangeBio(e) {
+    this.setState({
+      bio: e.target.value,
+    });
+  }
+
+  onChangeAccomplishments(e) {
+    this.setState({
+      accomplishments: e.target.value,
+    });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const emperor = {
+      name: this.state.name,
+      yearBorn: this.state.yearBorn,
+      riseToPower: this.state.riseToPower,
+      riseToPowerYear: this.state.riseToPowerYear,
+      death: this.state.death,
+      bio: this.state.bio,
+      accomplishments: this.state.accomplishments,
+    };
+    console.log(emperor);
+
+    axios
+      .post(
+        "http://localhost:5003/emperors/update/" + this.props.match.params.id,
+        emperor
+      )
+      .then((res) => console.log(res.data));
+
+    window.location = "/";
+  }
+
   render() {
     return (
       <div className="container">
@@ -99,6 +180,9 @@ export default class EditEmperor extends Component {
               value={this.state.accomplishments}
               onChange={this.onChangeAccomplishments}
             />
+          </div>
+          <div>
+            <input type="submit" value="Edit Emperor" className="border" />
           </div>
         </form>
       </div>
