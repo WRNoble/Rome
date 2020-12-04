@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class EditPolitician extends Component {
+export default class EditEnemy extends Component {
   constructor(props) {
     super(props);
 
     this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeOffice = this.onChangeOffice.bind(this);
+    this.onChangeNation = this.onChangeNation.bind(this);
+    this.onChangeDeath = this.onChangeDeath.bind(this);
     this.onChangeBio = this.onChangeBio.bind(this);
     this.onChangeAccomplishments = this.onChangeAccomplishments.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       name: "",
-      office: "",
+      nation: "",
+      death: "",
       bio: "",
       accomplishments: "",
     };
@@ -21,11 +23,12 @@ export default class EditPolitician extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5003/politicians/" + this.props.match.params.id)
+      .get("http://localhost:5003/enemies/" + this.props.match.params.id)
       .then((res) => {
         this.setState({
           name: res.data.name,
-          office: res.data.office,
+          nation: res.data.nation,
+          death: res.data.death,
           bio: res.data.bio,
           accomplishments: res.data.accomplishments,
         });
@@ -41,9 +44,15 @@ export default class EditPolitician extends Component {
     });
   }
 
-  onChangeOffice(e) {
+  onChangeNation(e) {
     this.setState({
-      office: e.target.value,
+      nation: e.target.value,
+    });
+  }
+
+  onChangeDeath(e) {
+    this.setState({
+      death: e.target.value,
     });
   }
 
@@ -61,29 +70,30 @@ export default class EditPolitician extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const politician = {
+    const enemy = {
       name: this.state.name,
-      office: this.state.office,
+      nation: this.state.nation,
+      death: this.state.death,
       bio: this.state.bio,
       accomplishments: this.state.accomplishments,
     };
-    console.log(politician);
+    console.log(enemy);
 
     axios
       .post(
-        "http://localhost:5003/politicians/updatepolitician/" +
+        "http://localhost:5003/enemies/updateenemy/" +
           this.props.match.params.id,
-        politician
+        enemy
       )
       .then((res) => console.log(res.data));
 
-    window.location = "/politicians";
+    window.location = "/enemies";
   }
 
   render() {
     return (
       <div className="container">
-        <h2>Edit Politician</h2>
+        <h2>Edit Enemy</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Name: </label>
@@ -96,13 +106,23 @@ export default class EditPolitician extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Offices Held: </label>
+            <label>Nation: </label>
             <input
               type="text"
               required
               className="form-control"
-              value={this.state.office}
-              onChange={this.onChangeOffice}
+              value={this.state.nation}
+              onChange={this.onChangeNation}
+            />
+          </div>
+          <div className="form-group">
+            <label>Death: </label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              value={this.state.death}
+              onChange={this.onChangeDeath}
             />
           </div>
           <div className="form-group">
@@ -128,10 +148,10 @@ export default class EditPolitician extends Component {
           <div>
             <button
               type="submit"
-              value="Edit Politician"
+              value="Edit Enemy"
               className="btn btn-warning"
             >
-              Update Politician
+              Update Enemy
             </button>
           </div>
         </form>

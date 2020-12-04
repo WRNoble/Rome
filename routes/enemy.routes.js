@@ -11,7 +11,7 @@ router.route("/").get((req, res) => {
 
 //add a new enemy
 
-router.route("/add").post((req, res) => {
+router.route("/addenemy").post((req, res) => {
   const name = req.body.name;
   const nation = req.body.nation;
   const death = Number(req.body.death);
@@ -42,7 +42,7 @@ router.route("/:id").get((req, res) => {
 
 //update enemy entry
 
-router.route("/:id").post((req, res) => {
+router.route("/updateenemy/:id").post((req, res) => {
   Enemy.findByIdAndUpdate(req.params.id).then((enemy) => {
     enemy.name = req.body.name;
     enemy.nation = req.body.nation;

@@ -1,33 +1,33 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class EditPolitician extends Component {
+export default class EditCity extends Component {
   constructor(props) {
     super(props);
 
     this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeOffice = this.onChangeOffice.bind(this);
-    this.onChangeBio = this.onChangeBio.bind(this);
-    this.onChangeAccomplishments = this.onChangeAccomplishments.bind(this);
+    this.onChangeYearFounded = this.onChangeYearFounded.bind(this);
+    this.onChangePopulation = this.onChangePopulation.bind(this);
+    this.onChangeProvince = this.onChangeProvince.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       name: "",
-      office: "",
-      bio: "",
-      accomplishments: "",
+      yearFounded: "",
+      population: "",
+      province: "",
     };
   }
 
   componentDidMount() {
     axios
-      .get("http://localhost:5003/politicians/" + this.props.match.params.id)
+      .get("http://localhost:5003/cities/" + this.props.match.params.id)
       .then((res) => {
         this.setState({
           name: res.data.name,
-          office: res.data.office,
-          bio: res.data.bio,
-          accomplishments: res.data.accomplishments,
+          yearFounded: res.data.yearFounded,
+          population: res.data.population,
+          province: res.data.province,
         });
       })
       .catch((err) => {
@@ -41,49 +41,46 @@ export default class EditPolitician extends Component {
     });
   }
 
-  onChangeOffice(e) {
+  onChangeYearFounded(e) {
     this.setState({
-      office: e.target.value,
+      yearFounded: e.target.value,
     });
   }
-
-  onChangeBio(e) {
+  onChangePopulation(e) {
     this.setState({
-      bio: e.target.value,
+      population: e.target.value,
     });
   }
-
-  onChangeAccomplishments(e) {
+  onChangeProvince(e) {
     this.setState({
-      accomplishments: e.target.value,
+      province: e.target.value,
     });
   }
 
   onSubmit(e) {
     e.preventDefault();
-    const politician = {
+    const city = {
       name: this.state.name,
-      office: this.state.office,
-      bio: this.state.bio,
-      accomplishments: this.state.accomplishments,
+      yearFounded: this.state.yearFounded,
+      population: this.state.population,
+      province: this.state.province,
     };
-    console.log(politician);
+    console.log(city);
 
     axios
       .post(
-        "http://localhost:5003/politicians/updatepolitician/" +
-          this.props.match.params.id,
-        politician
+        "http://localhost:5003/cities/updatecity/" + this.props.match.params.id,
+        city
       )
       .then((res) => console.log(res.data));
 
-    window.location = "/politicians";
+    window.location = "/cities";
   }
 
   render() {
     return (
       <div className="container">
-        <h2>Edit Politician</h2>
+        <h2>Edit City</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Name: </label>
@@ -96,42 +93,42 @@ export default class EditPolitician extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Offices Held: </label>
+            <label>Birth Year: </label>
             <input
               type="text"
               required
               className="form-control"
-              value={this.state.office}
-              onChange={this.onChangeOffice}
+              value={this.state.yearFounded}
+              onChange={this.onChangeYearFounded}
             />
           </div>
           <div className="form-group">
-            <label>Bio: </label>
+            <label>Rise To Power: </label>
             <input
               type="text"
               required
               className="form-control"
-              value={this.state.bio}
-              onChange={this.onChangeBio}
+              value={this.state.population}
+              onChange={this.onChangePopulation}
             />
           </div>
           <div className="form-group">
-            <label>Accomplishments: </label>
+            <label>Year Came To Power: </label>
             <input
               type="text"
               required
               className="form-control"
-              value={this.state.accomplishments}
-              onChange={this.onChangeAccomplishments}
+              value={this.state.province}
+              onChange={this.onChangeProvince}
             />
           </div>
           <div>
             <button
               type="submit"
-              value="Edit Politician"
+              value="Edit Emperor"
               className="btn btn-warning"
             >
-              Update Politician
+              Update City
             </button>
           </div>
         </form>

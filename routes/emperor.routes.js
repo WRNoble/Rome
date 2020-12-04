@@ -11,7 +11,7 @@ router.route("/").get((req, res) => {
 
 //add a new emperor
 
-router.route("/add").post((req, res) => {
+router.route("/addemperor").post((req, res) => {
   const name = req.body.name;
   const yearBorn = Number(req.body.yearBorn);
   const riseToPower = req.body.riseToPower;

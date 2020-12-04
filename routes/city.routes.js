@@ -11,7 +11,7 @@ router.route("/").get((req, res) => {
 
 //add a new city
 
-router.route("/add").post((req, res) => {
+router.route("/addcity").post((req, res) => {
   const name = req.body.name;
   const yearFounded = Number(req.body.yearFounded);
   const population = Number(req.body.population);
@@ -40,7 +40,7 @@ router.route("/:id").get((req, res) => {
 
 //update city entry
 
-router.route("/:id").post((req, res) => {
+router.route("/updatecity/:id").post((req, res) => {
   City.findByIdAndUpdate(req.params.id).then((city) => {
     city.name = req.body.name;
     city.yearFounded = Number(req.body.yearFounded);

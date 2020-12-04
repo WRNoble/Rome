@@ -11,7 +11,7 @@ router.route("/").get((req, res) => {
 
 //add a new legion
 
-router.route("/add").post((req, res) => {
+router.route("/addlegion").post((req, res) => {
   const title = req.body.title;
   const founding = req.body.founding;
   const emblem = req.body.emblem;
@@ -42,7 +42,7 @@ router.route("/:id").get((req, res) => {
 
 //update legion entry
 
-router.route("/:id").post((req, res) => {
+router.route("/updatelegion/:id").post((req, res) => {
   Legion.findByIdAndUpdate(req.params.id).then((legion) => {
     legion.title = req.body.title;
     legion.founding = req.body.founding;
