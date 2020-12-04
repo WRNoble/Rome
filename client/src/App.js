@@ -10,14 +10,16 @@ import EnemyList from "./components/EnemyList";
 import LegionList from "./components/LegionList";
 import CityList from "./components/CityList";
 import EditEmperor from "./components/EditEmperor";
+import EditPolitician from "./components/EditPolitician";
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Route path="/" exact component={EmperorList} />
-      <Route path="/update/:id" component={EditEmperor} />
+      <Route path="/updateemperor/:id" component={EditEmperor} />
       <Route path="/politicians" component={PoliticianList} />
+      <Route path="/updatepolitician/:id" component={EditPolitician} />
       <Route path="/enemies" component={EnemyList} />
       <Route path="/legions" component={LegionList} />
       <Route path="/cities" component={CityList} />

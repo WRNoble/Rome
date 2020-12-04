@@ -9,7 +9,7 @@ const Politician = (props) => (
     <td>{props.politician.bio}</td>
     <td>{props.politician.accomplishments}</td>
     <td>
-      <Link to={"/update/" + props.politician._id}>Edit</Link>
+      <Link to={"/updatepolitician/" + props.politician._id}>Edit</Link>
       <button
         className="btn btn-danger"
         onClick={() => {

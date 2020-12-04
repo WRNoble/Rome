@@ -1,25 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class EditEmperor extends Component {
+export default class EditPolitician extends Component {
   constructor(props) {
     super(props);
 
     this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeYearBorn = this.onChangeYearBorn.bind(this);
-    this.onChangeRiseToPower = this.onChangeRiseToPower.bind(this);
-    this.onChangeRiseToPowerYear = this.onChangeRiseToPowerYear.bind(this);
-    this.onChangeDeath = this.onChangeDeath.bind(this);
+    this.onChangeOffice = this.onChangeOffice.bind(this);
     this.onChangeBio = this.onChangeBio.bind(this);
     this.onChangeAccomplishments = this.onChangeAccomplishments.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       name: "",
-      yearBorn: "",
-      riseToPower: "",
-      riseToPowerYear: "",
-      death: "",
+      office: "",
       bio: "",
       accomplishments: "",
     };
@@ -27,14 +21,11 @@ export default class EditEmperor extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5003/emperors/" + this.props.match.params.id)
+      .get("http://localhost:5003/politicians/" + this.props.match.params.id)
       .then((res) => {
         this.setState({
           name: res.data.name,
-          yearBorn: res.data.yearBorn,
-          riseToPower: res.data.riseToPower,
-          riseToPowerYear: res.data.riseToPowerYear,
-          death: res.data.death,
+          office: res.data.yearBorn,
           bio: res.data.bio,
           accomplishments: res.data.accomplishments,
         });
@@ -50,24 +41,9 @@ export default class EditEmperor extends Component {
     });
   }
 
-  onChangeYearBorn(e) {
+  onChangeOffice(e) {
     this.setState({
-      yearBorn: e.target.value,
-    });
-  }
-  onChangeRiseToPower(e) {
-    this.setState({
-      riseToPower: e.target.value,
-    });
-  }
-  onChangeRiseToPowerYear(e) {
-    this.setState({
-      riseToPowerYear: e.target.value,
-    });
-  }
-  onChangeDeath(e) {
-    this.setState({
-      death: e.target.value,
+      office: e.target.value,
     });
   }
 
@@ -85,32 +61,29 @@ export default class EditEmperor extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const emperor = {
+    const politician = {
       name: this.state.name,
-      yearBorn: this.state.yearBorn,
-      riseToPower: this.state.riseToPower,
-      riseToPowerYear: this.state.riseToPowerYear,
-      death: this.state.death,
+      office: this.state.office,
       bio: this.state.bio,
       accomplishments: this.state.accomplishments,
     };
-    console.log(emperor);
+    console.log(politician);
 
     axios
       .post(
-        "http://localhost:5003/emperors/updateemperor/" +
+        "http://localhost:5003/politicians/updatepolitician/" +
           this.props.match.params.id,
-        emperor
+        politician
       )
       .then((res) => console.log(res.data));
 
-    window.location = "/";
+    window.location = "/politicians";
   }
 
   render() {
     return (
       <div className="container">
-        <h2>Edit Emperor</h2>
+        <h2>Edit Politician</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Name: </label>
@@ -123,43 +96,13 @@ export default class EditEmperor extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Birth Year: </label>
+            <label>Offices Held: </label>
             <input
               type="text"
               required
               className="form-control"
-              value={this.state.yearBorn}
-              onChange={this.onChangeYearBorn}
-            />
-          </div>
-          <div className="form-group">
-            <label>Rise To Power: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.riseToPower}
-              onChange={this.onChangeRiseToPowerYear}
-            />
-          </div>
-          <div className="form-group">
-            <label>Year Came To Power: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.riseToPowerYear}
-              onChange={this.onChangeRiseToPowerYear}
-            />
-          </div>
-          <div className="form-group">
-            <label>Death: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.death}
-              onChange={this.onChangeDeath}
+              value={this.state.office}
+              onChange={this.onChangeOffice}
             />
           </div>
           <div className="form-group">
@@ -185,10 +128,10 @@ export default class EditEmperor extends Component {
           <div>
             <button
               type="submit"
-              value="Edit Emperor"
+              value="Edit Politician"
               className="btn btn-warning"
             >
-              Update Emperor
+              Update Politician
             </button>
           </div>
         </form>

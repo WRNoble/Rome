@@ -40,7 +40,7 @@ router.route("/:id").get((req, res) => {
 
 //update emperor entry
 
-router.route("/:id").post((req, res) => {
+router.route("/updatepolitician/:id").post((req, res) => {
   Politician.findByIdAndUpdate(req.params.id).then((politician) => {
     politician.name = req.body.name;
     politician.office = req.body.riseToPower;

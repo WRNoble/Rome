@@ -12,7 +12,7 @@ const Emperor = (props) => (
     <td>{props.emperor.bio}</td>
     <td>{props.emperor.accomplishments}</td>
     <td>
-      <Link to={"/update/" + props.emperor._id}>Edit</Link>
+      <Link to={"/updateemperor/" + props.emperor._id}>Edit</Link>
       <button
         className="btn btn-danger"
         onClick={() => {
