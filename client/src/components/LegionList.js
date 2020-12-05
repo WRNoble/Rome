@@ -67,6 +67,9 @@ export default class LegionList extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Link to={"/addlegion/"}>Add Legion</Link>
+        </div>
         <table className="table">
           <thead className="thead-dark">
             <tr>

@@ -67,6 +67,9 @@ export default class EnemyList extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Link to={"/addenemy/"}>Add Enemy</Link>
+        </div>
         <table className="table">
           <thead className="thead-dark">
             <tr>

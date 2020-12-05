@@ -69,6 +69,9 @@ export default class EmperorList extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Link to={"/addemperor/"}>Add Emperor</Link>
+        </div>
         <table className="table">
           <thead className="thead-dark">
             <tr>

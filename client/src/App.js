@@ -2,18 +2,20 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
-
+//components
 import Navbar from "./components/Navbar";
 import EmperorList from "./components/EmperorList";
 import PoliticianList from "./components/PoliticianList";
 import EnemyList from "./components/EnemyList";
 import LegionList from "./components/LegionList";
 import CityList from "./components/CityList";
+//Editing components
 import EditEmperor from "./components/EditEmperor";
 import EditPolitician from "./components/EditPolitician";
 import EditEnemy from "./components/EditEnemy";
 import EditLegion from "./components/EditLegion";
 import EditCity from "./components/EditCity";
+//Adding components
 
 function App() {
   return (

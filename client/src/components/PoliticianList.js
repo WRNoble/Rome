@@ -66,6 +66,9 @@ export default class PoliticianList extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Link to={"/addpolitician/"}>Add Politician</Link>
+        </div>
         <table className="table">
           <thead className="thead-dark">
             <tr>

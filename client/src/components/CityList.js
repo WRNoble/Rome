@@ -67,6 +67,9 @@ export default class CityList extends Component {
   render() {
     return (
       <div>
+        <div>
+          <Link to={"/addcity/"}>Add City</Link>
+        </div>
         <table className="table">
           <thead className="thead-dark">
             <tr>
