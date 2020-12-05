@@ -13,22 +13,22 @@ import EditEmperor from "./components/EditEmperor";
 import EditPolitician from "./components/EditPolitician";
 import EditEnemy from "./components/EditEnemy";
 import EditLegion from "./components/EditLegion";
-import EditCity from "./components/EditCity";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Route path="/" exact component={EmperorList} />
-      <Route path="/updateemperor/:id" component={EditEmperor} />
-      <Route path="/politicians" component={PoliticianList} />
-      <Route path="/updatepolitician/:id" component={EditPolitician} />
-      <Route path="/enemies" component={EnemyList} />
-      <Route path="/updateenemy/:id" component={EditEnemy} />
-      <Route path="/legions" component={LegionList} />
-      <Route path="/updatelegion/:id" component={EditLegion} />
-      <Route path="/cities" component={CityList} />
-      <Route path="/updatecity/:id" component={EditCity} />
+      <div>
+        <Navbar />
+        <Route path="/" exact component={EmperorList} />
+        <Route path="/updateemperor/:id" component={EditEmperor} />
+        <Route path="/politicians" component={PoliticianList} />
+        <Route path="/updatepolitician/:id" component={EditPolitician} />
+        <Route path="/enemies" component={EnemyList} />
+        <Route path="/updateenemy/:id" component={EditEnemy} />
+        <Route path="/legions" component={LegionList} />
+        <Route path="/updatelegion/:id" component={EditLegion} />
+        <Route path="/cities" component={CityList} />
+      </div>
     </Router>
   );
 }

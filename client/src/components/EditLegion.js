@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class EditLegion extends Component {
+export default class EditEmperor extends Component {
   constructor(props) {
     super(props);
 
@@ -71,7 +71,7 @@ export default class EditLegion extends Component {
   onSubmit(e) {
     e.preventDefault();
     const legion = {
-      name: this.state.name,
+      title: this.state.title,
       founding: this.state.founding,
       emblem: this.state.emblem,
       postings: this.state.postings,
@@ -133,6 +133,16 @@ export default class EditLegion extends Component {
               className="form-control"
               value={this.state.postings}
               onChange={this.onChangePostings}
+            />
+          </div>
+          <div className="form-group">
+            <label>Honors: </label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              value={this.state.honors}
+              onChange={this.onChangeHonors}
             />
           </div>
           <div>

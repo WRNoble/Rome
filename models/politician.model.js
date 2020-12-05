@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const politicianSchema = new Schema(
   {
     name: { type: String, required: true },
-    office: { type: String, required: false },
+    career: { type: String, required: true },
     bio: { type: String, required: true },
     accomplishments: { type: String, required: false },
   },

@@ -11,15 +11,15 @@ router.route("/").get((req, res) => {
 
 //add a new politician
 
-router.route("/add").post((req, res) => {
+router.route("/addpolitician").post((req, res) => {
   const name = req.body.name;
-  const office = req.body.office;
+  const career = req.body.career;
   const bio = req.body.bio;
   const accomplishments = req.body.accomplishments;
 
   const newPolitician = new Politician({
     name,
-    office,
+    career,
     bio,
     accomplishments,
   });
@@ -43,7 +43,7 @@ router.route("/:id").get((req, res) => {
 router.route("/updatepolitician/:id").post((req, res) => {
   Politician.findByIdAndUpdate(req.params.id).then((politician) => {
     politician.name = req.body.name;
-    politician.office = req.body.riseToPower;
+    politician.career = req.body.career;
     politician.bio = req.body.bio;
     politician.accomplishments = req.body.accomplishments;
 

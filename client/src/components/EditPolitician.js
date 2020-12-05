@@ -6,14 +6,14 @@ export default class EditPolitician extends Component {
     super(props);
 
     this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeOffice = this.onChangeOffice.bind(this);
+    this.onChangeCareer = this.onChangeCareer.bind(this);
     this.onChangeBio = this.onChangeBio.bind(this);
     this.onChangeAccomplishments = this.onChangeAccomplishments.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       name: "",
-      office: "",
+      career: "",
       bio: "",
       accomplishments: "",
     };
@@ -25,7 +25,7 @@ export default class EditPolitician extends Component {
       .then((res) => {
         this.setState({
           name: res.data.name,
-          office: res.data.office,
+          career: res.data.career,
           bio: res.data.bio,
           accomplishments: res.data.accomplishments,
         });
@@ -41,9 +41,9 @@ export default class EditPolitician extends Component {
     });
   }
 
-  onChangeOffice(e) {
+  onChangeCareer(e) {
     this.setState({
-      office: e.target.value,
+      career: e.target.value,
     });
   }
 
@@ -63,7 +63,7 @@ export default class EditPolitician extends Component {
     e.preventDefault();
     const politician = {
       name: this.state.name,
-      office: this.state.office,
+      career: this.state.career,
       bio: this.state.bio,
       accomplishments: this.state.accomplishments,
     };
@@ -96,13 +96,13 @@ export default class EditPolitician extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Offices Held: </label>
+            <label>Offices held: </label>
             <input
               type="text"
               required
               className="form-control"
-              value={this.state.office}
-              onChange={this.onChangeOffice}
+              value={this.state.career}
+              onChange={this.onChangeCareer}
             />
           </div>
           <div className="form-group">

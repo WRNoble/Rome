@@ -10,7 +10,7 @@ const Legion = (props) => (
     <td>{props.legion.postings}</td>
     <td>{props.legion.honors}</td>
     <td>
-      <Link to={"/update/" + props.legion._id}>Edit</Link>
+      <Link to={"/updatelegion/" + props.legion._id}>Edit</Link>
       <button
         className="btn btn-danger"
         onClick={() => {

@@ -10,7 +10,7 @@ const City = (props) => (
     <td>{props.city.province}</td>
     <td>{props.city.honors}</td>
     <td>
-      <Link to={"/update/" + props.city._id}>Edit</Link>
+      <Link to={"/updatecity/" + props.city._id}>Edit</Link>
       <button
         className="btn btn-danger"
         onClick={() => {

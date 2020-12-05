@@ -10,7 +10,7 @@ const Enemy = (props) => (
     <td>{props.enemy.bio}</td>
     <td>{props.enemy.accomplishments}</td>
     <td>
-      <Link to={"/update/" + props.enemy._id}>Edit</Link>
+      <Link to={"/updateenemy/" + props.enemy._id}>Edit</Link>
       <button
         className="btn btn-danger"
         onClick={() => {

@@ -118,7 +118,7 @@ export default class EditEmperor extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.name}
+              value={this.state.name || " "}
               onChange={this.onChangeName}
             />
           </div>
@@ -128,7 +128,7 @@ export default class EditEmperor extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.yearBorn}
+              value={this.state.yearBorn || " "}
               onChange={this.onChangeYearBorn}
             />
           </div>
@@ -138,7 +138,7 @@ export default class EditEmperor extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.riseToPower}
+              value={this.state.riseToPower || " "}
               onChange={this.onChangeRiseToPowerYear}
             />
           </div>
@@ -148,7 +148,7 @@ export default class EditEmperor extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.riseToPowerYear}
+              value={this.state.riseToPowerYear || " "}
               onChange={this.onChangeRiseToPowerYear}
             />
           </div>
@@ -158,7 +158,7 @@ export default class EditEmperor extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.death}
+              value={this.state.death || " "}
               onChange={this.onChangeDeath}
             />
           </div>
@@ -168,7 +168,7 @@ export default class EditEmperor extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.bio}
+              value={this.state.bio || " "}
               onChange={this.onChangeBio}
             />
           </div>
@@ -178,7 +178,7 @@ export default class EditEmperor extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.accomplishments}
+              value={this.state.accomplishments || " "}
               onChange={this.onChangeAccomplishments}
             />
           </div>

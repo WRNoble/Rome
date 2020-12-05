@@ -5,7 +5,7 @@ import axios from "axios";
 const Politician = (props) => (
   <tr>
     <td>{props.politician.name}</td>
-    <td>{props.politician.office}</td>
+    <td>{props.politician.career}</td>
     <td>{props.politician.bio}</td>
     <td>{props.politician.accomplishments}</td>
     <td>
