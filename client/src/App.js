@@ -13,6 +13,7 @@ import EditEmperor from "./components/EditEmperor";
 import EditPolitician from "./components/EditPolitician";
 import EditEnemy from "./components/EditEnemy";
 import EditLegion from "./components/EditLegion";
+import EditCity from "./components/EditCity";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/legions" component={LegionList} />
         <Route path="/updatelegion/:id" component={EditLegion} />
         <Route path="/cities" component={CityList} />
+        <Route path="/updatecity/:id" component={EditCity} />
       </div>
     </Router>
   );
