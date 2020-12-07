@@ -4,18 +4,19 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 //components
 import Navbar from "./components/Navbar";
-import EmperorList from "./components/EmperorList";
-import PoliticianList from "./components/PoliticianList";
-import EnemyList from "./components/EnemyList";
-import LegionList from "./components/LegionList";
-import CityList from "./components/CityList";
+import EmperorList from "./components/lists/EmperorList";
+import PoliticianList from "./components/lists/PoliticianList";
+import EnemyList from "./components/lists/EnemyList";
+import LegionList from "./components/lists/LegionList";
+import CityList from "./components/lists/CityList";
 //Editing components
-import EditEmperor from "./components/EditEmperor";
-import EditPolitician from "./components/EditPolitician";
-import EditEnemy from "./components/EditEnemy";
-import EditLegion from "./components/EditLegion";
-import EditCity from "./components/EditCity";
+import EditEmperor from "./components/update/EditEmperor";
+import EditPolitician from "./components/update/EditPolitician";
+import EditEnemy from "./components/update/EditEnemy";
+import EditLegion from "./components/update/EditLegion";
+import EditCity from "./components/update/EditCity";
 //Adding components
+import AddEmperor from "./components/AddEmperor";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Navbar />
         <Route path="/" exact component={EmperorList} />
         <Route path="/updateemperor/:id" component={EditEmperor} />
+        <Route path="/addemperor/" component={AddEmperor} />
         <Route path="/politicians" component={PoliticianList} />
         <Route path="/updatepolitician/:id" component={EditPolitician} />
         <Route path="/enemies" component={EnemyList} />
