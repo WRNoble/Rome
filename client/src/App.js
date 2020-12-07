@@ -19,6 +19,7 @@ import EditCity from "./components/update/EditCity";
 import AddEmperor from "./components/AddEmperor";
 import AddPolitician from "./components/AddPolitician";
 import AddEnemy from "./components/AddEnemy";
+import AddLegion from "./components/AddLegion";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/addenemy/" component={AddEnemy} />
         <Route path="/legions" component={LegionList} />
         <Route path="/updatelegion/:id" component={EditLegion} />
+        <Route path="/addlegion/" component={AddLegion} />
         <Route path="/cities" component={CityList} />
         <Route path="/updatecity/:id" component={EditCity} />
       </div>
