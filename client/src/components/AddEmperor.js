@@ -12,7 +12,7 @@ export default class AddEmperor extends Component {
     this.onChangeDeath = this.onChangeDeath.bind(this);
     this.onChangeBio = this.onChangeBio.bind(this);
     this.onChangeAccomplishments = this.onChangeAccomplishments.bind(this);
-    this.onSubmit = this.onChangeSubmit.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       name: "",
@@ -26,7 +26,7 @@ export default class AddEmperor extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5003/emperors").catch((err) => {
+    axios.get("http://localhost:5003/emperors/").catch((err) => {
       console.log("Error: " + err);
     });
   }
@@ -85,7 +85,7 @@ export default class AddEmperor extends Component {
       accomplishments: this.state.accomplishments,
     };
 
-    axios.post("http://localhost:5002/emperors/addemperor", emperor);
+    axios.post("http://localhost:5003/emperors/addemperor", emperor);
 
     window.location = "/";
   }
@@ -165,6 +165,9 @@ export default class AddEmperor extends Component {
               onChange={this.onChangeAccomplishments}
             />
           </div>
+          <button type="submit" value="Add Emperor" className="btn btn-warning">
+            Add Emperor
+          </button>
         </form>
       </div>
     );
