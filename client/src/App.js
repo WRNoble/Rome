@@ -20,6 +20,7 @@ import AddEmperor from "./components/AddEmperor";
 import AddPolitician from "./components/AddPolitician";
 import AddEnemy from "./components/AddEnemy";
 import AddLegion from "./components/AddLegion";
+import AddCity from "./components/AddCity";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/addlegion/" component={AddLegion} />
         <Route path="/cities" component={CityList} />
         <Route path="/updatecity/:id" component={EditCity} />
+        <Route path="/addcity/" component={AddCity} />
       </div>
     </Router>
   );
