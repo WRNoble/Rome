@@ -9,7 +9,7 @@ const Politician = (props) => (
     <td>{props.politician.bio}</td>
     <td>{props.politician.accomplishments}</td>
     <td>
-      <Link to={"/updatepolitician/" + props.politician._id}>Edit</Link>
+      <Link to={"/updatepolitician/" + props.politician._id}>Edit</Link>{" "}
       <button
         className="btn btn-danger"
         onClick={() => {
@@ -17,7 +17,15 @@ const Politician = (props) => (
         }}
       >
         Delete
-      </button>
+      </button>{" "}
+      {/* <button
+        className="btn btn-warning"
+        onClick={() => {
+          props.handleOpenModal(props.politician._id);
+        }}
+      >
+        See More
+      </button> */}
     </td>
   </tr>
 );
@@ -27,8 +35,13 @@ export default class PoliticianList extends Component {
     super(props);
 
     this.deletePolitician = this.deletePolitician.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
 
-    this.state = { politicians: [] };
+    this.state = {
+      politicians: [],
+      showModal: false,
+    };
   }
 
   componentDidMount() {
@@ -48,6 +61,18 @@ export default class PoliticianList extends Component {
     });
     this.setState({
       politicians: this.state.politicians.filter((el) => el._id !== id),
+    });
+  }
+
+  handleOpenModal(id) {
+    this.setState({
+      showModal: true,
+    });
+  }
+
+  handleCloseModal(id) {
+    this.setState({
+      showModal: false,
     });
   }
 

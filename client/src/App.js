@@ -16,11 +16,13 @@ import EditEnemy from "./components/update/EditEnemy";
 import EditLegion from "./components/update/EditLegion";
 import EditCity from "./components/update/EditCity";
 //Adding components
-import AddEmperor from "./components/AddEmperor";
-import AddPolitician from "./components/AddPolitician";
-import AddEnemy from "./components/AddEnemy";
-import AddLegion from "./components/AddLegion";
-import AddCity from "./components/AddCity";
+import AddEmperor from "./components/add/AddEmperor";
+import AddPolitician from "./components/add/AddPolitician";
+import AddEnemy from "./components/add/AddEnemy";
+import AddLegion from "./components/add/AddLegion";
+import AddCity from "./components/add/AddCity";
+//More Info
+import InfoEmperor from "./components/info/InfoEmperor";
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
         <Route path="/" exact component={EmperorList} />
         <Route path="/updateemperor/:id" component={EditEmperor} />
         <Route path="/addemperor/" component={AddEmperor} />
+        <Route path="/emperorinfo/" component={InfoEmperor} />
         <Route path="/politicians" component={PoliticianList} />
         <Route path="/updatepolitician/:id" component={EditPolitician} />
         <Route path="/addpolitician/" component={AddPolitician} />

@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 
 const Emperor = (props) => (
   <tr>
     <td>{props.emperor.name}</td>
     <td>{props.emperor.yearBorn}</td>
-    <td>{props.emperor.riseToPower}</td>
+    {/* <td>{props.emperor.riseToPower}</td> */}
     <td>{props.emperor.riseToPowerYear}</td>
     <td>{props.emperor.death}</td>
-    <td>{props.emperor.bio}</td>
+    {/* <td>{props.emperor.bio}</td> */}
     <td>{props.emperor.accomplishments}</td>
     <td>
-      <Link to={"/updateemperor/" + props.emperor._id}>Edit</Link>
+      <Link to={"/updateemperor/" + props.emperor._id}>Edit</Link>{" "}
       <button
         className="btn btn-danger"
         onClick={() => {
@@ -20,7 +21,8 @@ const Emperor = (props) => (
         }}
       >
         Delete
-      </button>
+      </button>{" "}
+      {/* this is a test, below this point */}
     </td>
   </tr>
 );
@@ -77,10 +79,10 @@ export default class EmperorList extends Component {
             <tr>
               <th>Name</th>
               <th>Year Born</th>
-              <th>Came To Power</th>
+              {/* <th>Came To Power</th> */}
               <th>Year In Power</th>
               <th>Death</th>
-              <th>Bio</th>
+              {/* <th>Bio</th> */}
               <th>Accomplishments</th>
               <th>Actions</th>
             </tr>

@@ -13,10 +13,10 @@ router.route("/").get((req, res) => {
 
 router.route("/addemperor").post((req, res) => {
   const name = req.body.name;
-  const yearBorn = Number(req.body.yearBorn);
+  const yearBorn = req.body.yearBorn;
   const riseToPower = req.body.riseToPower;
-  const riseToPowerYear = Number(req.body.riseToPowerYear);
-  const death = Number(req.body.death);
+  const riseToPowerYear = req.body.riseToPowerYear;
+  const death = req.body.death;
   const bio = req.body.bio;
   const accomplishments = req.body.accomplishments;
 
